@@ -62,9 +62,9 @@ class FirstFragment : Fragment() {
 
         val map = mapOf(
             "key1" to "value1",
-            "key2" to true,
-            "key3" to 1111,
-            "key4" to arrayOf("1", 2, true),
+            "key2" to "true",
+            "key3" to "1111",
+            "key4" to arrayOf("1", "2", "true").toString(),
         )
         println(mapRepository.load("key1"))
         println(mapRepository.save(map))
@@ -72,6 +72,12 @@ class FirstFragment : Fragment() {
         println(mapRepository.load("key2"))
         println(mapRepository.load("key3"))
         println(mapRepository.load("key4"))
+
+        println(mapRepository.fetch())
+        println(mapRepository.getString("title"))
+        println(mapRepository.getInt("userId"))
+        println(mapRepository.getDouble("userId"))
+        println(mapRepository.getBoolean("completed"))
 
         repeat(2) {
             apiRepository.fetch(1).also(::println).getOrNull()
