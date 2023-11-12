@@ -11,6 +11,7 @@
 		071504E42B00C64A00B11C89 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071504E32B00C64A00B11C89 /* ContentView.swift */; };
 		071504E62B00C64B00B11C89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 071504E52B00C64B00B11C89 /* Assets.xcassets */; };
 		071504E92B00C64B00B11C89 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 071504E82B00C64B00B11C89 /* Preview Assets.xcassets */; };
+		071504F32B00C8E400B11C89 /* lib in Frameworks */ = {isa = PBXBuildFile; productRef = 071504F22B00C8E400B11C89 /* lib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		071504E32B00C64A00B11C89 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		071504E52B00C64B00B11C89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		071504E82B00C64B00B11C89 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		071504EF2B00C8CF00B11C89 /* lib */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = lib; sourceTree = "<group>"; };
+		071504F02B00C8E000B11C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				071504F32B00C8E400B11C89 /* lib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,8 +39,10 @@
 		071504D52B00C64A00B11C89 = {
 			isa = PBXGroup;
 			children = (
+				071504EF2B00C8CF00B11C89 /* lib */,
 				071504E02B00C64A00B11C89 /* ncache */,
 				071504DF2B00C64A00B11C89 /* Products */,
+				071504F12B00C8E400B11C89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +57,7 @@
 		071504E02B00C64A00B11C89 /* ncache */ = {
 			isa = PBXGroup;
 			children = (
+				071504F02B00C8E000B11C89 /* Info.plist */,
 				071504E12B00C64A00B11C89 /* ncacheApp.swift */,
 				071504E32B00C64A00B11C89 /* ContentView.swift */,
 				071504E52B00C64B00B11C89 /* Assets.xcassets */,
@@ -67,6 +74,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		071504F12B00C8E400B11C89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,12 +91,16 @@
 				071504DA2B00C64A00B11C89 /* Sources */,
 				071504DB2B00C64A00B11C89 /* Frameworks */,
 				071504DC2B00C64A00B11C89 /* Resources */,
+				071504F42B00CFF900B11C89 /* Swift Format */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ncache;
+			packageProductDependencies = (
+				071504F22B00C8E400B11C89 /* lib */,
+			);
 			productName = ncache;
 			productReference = 071504DE2B00C64A00B11C89 /* ncache.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +149,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		071504F42B00CFF900B11C89 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd lib\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\nswift run -c release swiftformat \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		071504DA2B00C64A00B11C89 /* Sources */ = {
@@ -274,7 +314,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ncache/Preview Content\"";
 				DEVELOPMENT_TEAM = 459NR2J9TV;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ncache/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,7 +346,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ncache/Preview Content\"";
 				DEVELOPMENT_TEAM = 459NR2J9TV;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ncache/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,6 +390,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		071504F22B00C8E400B11C89 /* lib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = lib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 071504D62B00C64A00B11C89 /* Project object */;
 }

@@ -5,6 +5,7 @@
 //  Created by Takenoko on 2023/11/12.
 //
 
+import lib
 import SwiftUI
 
 struct ContentView: View {
@@ -12,10 +13,11 @@ struct ContentView: View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
-                .foregroundStyle(.tint)
+            // .foregroundStyle(.tint)
             Text("Hello, world!")
         }
         .padding()
+        .onAppear(perform: { Lib() })
     }
 }
 
