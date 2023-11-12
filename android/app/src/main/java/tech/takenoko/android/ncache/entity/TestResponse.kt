@@ -1,8 +1,9 @@
 package tech.takenoko.android.ncache.entity
 
 import com.squareup.moshi.JsonClass
-import tech.takenoko.android.ncache.entity.CacheAdapter.Companion.fromWrapJson
-import tech.takenoko.android.ncache.entity.CacheAdapter.Companion.toWrapJson
+import tech.takenoko.android.ncache.domain.CacheAdapter
+import tech.takenoko.android.ncache.domain.CacheAdapter.Companion.fromWrapJson
+import tech.takenoko.android.ncache.domain.CacheAdapter.Companion.toWrapJson
 
 @JsonClass(generateAdapter = true)
 data class TestResponse(

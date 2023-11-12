@@ -1,6 +1,5 @@
-package tech.takenoko.android.ncache.entity
+package tech.takenoko.android.ncache.domain
 
-import tech.takenoko.android.ncache.domain.JsonParseException
 import tech.takenoko.android.ncache.utils.moshi
 
 interface CacheAdapter<T> {

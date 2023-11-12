@@ -58,33 +58,37 @@ class FirstFragment : Fragment() {
         val apiRepository = ApiRepository(requireContext()) as IApiRepository
         val testRepository = TestRepository(requireContext()) as ITestRepository
         val mapRepository = MapRepository(requireContext())
-        println(NetworkCache.clean(requireContext()))
 
         val map = mapOf(
             "key1" to "value1",
             "key2" to "true",
             "key3" to "1111",
-            "key4" to arrayOf("1", "2", "true").toString(),
+            "key4" to arrayOf("1", "2", "true").joinToString { it },
         )
+
+        println(NetworkCache.clean(requireContext()))
+        println("-----------------------------")
         println(mapRepository.load("key1"))
         println(mapRepository.save(map))
         println(mapRepository.load("key1"))
         println(mapRepository.load("key2"))
         println(mapRepository.load("key3"))
         println(mapRepository.load("key4"))
-
+        println("-----------------------------")
         println(mapRepository.fetch())
         println(mapRepository.getString("title"))
-        println(mapRepository.getInt("userId"))
-        println(mapRepository.getDouble("userId"))
-        println(mapRepository.getBoolean("completed"))
-
+        println(mapRepository.getInt("price"))
+        println(mapRepository.getDouble("discountPercentage"))
+        println(mapRepository.getBoolean("isCache"))
+        println(mapRepository.getList("images"))
+        println("-----------------------------")
         repeat(2) {
             apiRepository.fetch(1).also(::println).getOrNull()
             apiRepository.fetch(2).also(::println).getOrNull()
             apiRepository.fetch(3).also(::println).getOrNull()
             apiRepository.fetch(4).also(::println).getOrNull()
         }
+        println("-----------------------------")
         println(testRepository.load("test"))
         println(testRepository.save("test", TestResponse(1)))
         do {

@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import tech.takenoko.android.ncache.domain.IApiRepository
 import tech.takenoko.android.ncache.entity.JsonPlaceholderFetchResponse
-import tech.takenoko.android.ncache.entity.JsonPlaceholderFetchResponse.Adapter
+import tech.takenoko.android.ncache.entity.NetworkCacheKey
 import tech.takenoko.android.ncache.entity.NetworkCacheResult.Cached
 import tech.takenoko.android.ncache.utils.moshi
 
@@ -16,7 +16,7 @@ class ApiRepository(
     override val context: Context
 ) : IApiRepository, NetworkCache {
     override suspend fun fetch(num: Int) = runCatching {
-        val result = getCachedOrFetch("ApiRepository${num}", Adapter) {
+        val result = getCachedOrFetch(NetworkCacheKey.ApiRepository(num)) {
             jsonPlaceholder.fetch(num)
         }
         result.value.copy(isCache = result is Cached)
